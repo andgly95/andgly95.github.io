@@ -1,0 +1,85 @@
+/* Styles that are mutually exclusive from the application but used across many applications */
+
+@import './variables';
+
+/* spacing */
+@each $size, $value in $spacing-sizes {
+  .margin-#{$size}, .m-#{$size} { margin: $value !important; }
+  .margin-left-#{$size}, .ml-#{$size} { margin-left: $value !important; }
+  .margin-right-#{$size}, .mr-#{$size} { margin-right: $value !important; }
+  .margin-top-#{$size}, .mt-#{$size} { margin-top: $value !important; }
+  .margin-bottom-#{$size}, .mb-#{$size} { margin-bottom: $value !important; }
+
+  .padding-#{$size}, .p-#{$size} { padding: $value !important; }
+  .padding-left-#{$size}, .pl-#{$size} { padding-left: $value !important; }
+  .padding-right-#{$size}, .pr-#{$size} { padding-right: $value !important; }
+  .padding-top-#{$size}, .pt-#{$size} { padding-top: $value !important; }
+  .padding-bottom-#{$size}, .pb-#{$size} { padding-bottom: $value !important; }
+}
+
+/* borders */
+
+@each $size, $value in $border-sizes {
+  .border-#{$size} { border-width: $value !important; border-style:solid; }
+  .border-left-#{$size} { border-left-width: $value !important; border-left-style: solid; }
+  .border-right-#{$size} { border-right-width: $value !important; border-right-style: solid; }
+  .border-top-#{$size} { border-top-width: $value !important; border-top-style: solid; }
+  .border-bottom-#{$size} { border-bottom-width: $value !important; border-bottom-style: solid; }
+
+  @each $color, $value in $theme-colors {
+    .border-#{$color} { border-color: $value !important; }
+  }
+}
+
+/* corners */
+@each $size, $value in $border-radius-sizes {
+  .border-radius-#{$size}, .br-#{$size} { border-radius: $value !important; }
+  .border-radius-tl-#{$size}, .br-tl-#{$size} { border-top-left-radius: $value !important; }
+  .border-radius-tr-#{$size}, .br-tr-#{$size} { border-top-right-radius: $value !important; }
+  .border-radius-bl-#{$size}, .br-bl-#{$size} { border-bottom-left-radius: $value !important; }
+  .border-radius-br-#{$size}, .br-br-#{$size} { border-bottom-right-radius: $value !important; }
+}
+
+.height-100 {
+  height: 100%;
+}
+
+/* End Paddings */
+
+.no-wrap {
+  white-space: nowrap;
+}
+
+.self-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.hidden {
+  opacity: 0;
+  //visibility: hidden;
+  max-height: 0;
+  overflow: hidden;
+}
+
+div[class*='portlet'] hr.fit,
+div.card hr.fit {
+  margin-left: -$spacing-lg;
+  margin-right: -$spacing-lg;
+}
+
+.flex-align-items {
+  align-items: center;
+}
+
+.display-flex {
+  display: flex;
+}
+
+.text-grey {
+  color: $grey-50;
+}

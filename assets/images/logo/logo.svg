@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="198" height="40" viewBox="0 0 198 40">
+    <g fill="#FFF" fill-rule="evenodd">
+        <text font-family="NotoSansDisplay-SemiBold, Noto Sans Display" font-size="16" font-weight="500" transform="translate(71)">
+            <tspan x="0" y="17">NYC</tspan> <tspan x="0" y="37">Housing Connect </tspan>
+        </text>
+        <path fill-rule="nonzero" d="M45.888 14.378h-.006v-3.049L23.104 0 19.65 1.715.327 11.329v28.324H3.78v-26.52l15.869-7.9v34.42h11.933v-16.9l11.75-5.033v21.933H62.75V21.601z"/>
+    </g>
+</svg>

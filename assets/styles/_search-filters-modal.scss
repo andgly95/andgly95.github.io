@@ -1,0 +1,55 @@
+@import './variables';
+
+div.cdk-overlay-container {
+  position: absolute;
+}
+
+.filter-modal {
+  .mat-dialog-content {
+    height: auto;
+    max-height: 560px;
+  }
+  .mat-dialog-container {
+    .filter-modal-title-section {
+      p {
+        display: inline-block;
+      }
+
+      .title {
+        margin-right: 10px;
+      }
+      .close-button {
+        cursor: pointer;
+        padding: 1px 5px;
+        border-radius: 50%;
+        position: relative;
+        right: -10px;
+        top: -5px;
+
+        &:hover {
+          background-color: $grey-95;
+          // color: white;
+        }
+        &:active{
+          background-color: $grey-90;
+          border: 1px solid $grey-90;
+        }
+      }
+    }
+
+    .amenities-filter-form-container {
+      .active {
+        color: $blue;
+      }
+    }
+
+    // &::after {
+    //   width: 0;
+    //   height: 0;
+    //   border-left: 5px solid transparent;
+    //   border-right: 5px solid transparent;
+
+    //   border-bottom: 5px solid white;
+    // }
+  }
+}

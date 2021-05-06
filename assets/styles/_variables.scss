@@ -1,0 +1,243 @@
+/**********************************************************************/
+/**************************** IMPORTANT *******************************/
+/* Please consult with Yury before adding some new CSS variables.     */
+/**********************************************************************/
+/* Table of Contents:                                                 */
+/*    - Typography                                                    */
+/*    - Theme Colors                                                  */
+/*    - Responsive Breakpoints                                        */
+/*    - Shadows                                                       */
+/*    - Spacing Guidelines                                            */
+/*    - Animations                                                    */
+/*    - Corners                                                       */
+/**********************************************************************/
+
+//Typography
+$font-main: "Open Sans", sans-serif;
+$font-heading: "Roboto", sans-serif;
+$font-lineawesome: normal normal normal 16px/1 "LineAwesome";
+$font-fontawesome: "Font Awesome 5 Free";
+$html-font-size-lg: 16px;
+$html-font-size-md: 15px;
+$html-font-size-sm: 14px;
+$html-font-size-xs: 13px;
+
+$html-font-weight: 400;
+
+// Theme Colors
+$color-offset: 6%; // the amount to offset the lighter and darker varients of a specific color
+
+$base: #fafafa; //used primarily as off-white body background color
+
+$primary: #020063;
+$secondary: #fafafa;
+$secondary-blue: rgb(109, 178, 255); // we should replace this
+$accent: #fcb323; //#00c5dc;
+$focus: #9816f4;
+
+$success: #00e6ab;
+$warning: #ffb822;
+$danger: #ff2b2b; //#f4516c;
+$info: #5578eb; //#36a3f7;
+
+$metal: #c4c5d6;
+$metal-light: lighten($metal, $color-offset);
+$metal-dark: darken($metal, $color-offset);
+
+// greys
+$light: #fff;
+$dark: #2c2e3e;
+$grey-20: #333333;
+$grey-30: #4d4d4d;
+$grey-50: #808080;
+$grey-70: #b3b3b3;
+$grey-90: #e6e6e6;
+$grey-95: #f2f2f2;
+$black: #000000;
+$white: #ffffff;
+
+// Extended Color Palette
+// TODO: Review these colors
+$dark-blue: #023970;
+$blue: #017ace;
+$cerulean: #017ace;
+$light-blue: #cceaff;
+$pale-blue: #f1f9ff;
+$dark-teal: #00646e;
+$teal: #00c1d4;
+$light-teal: #ccfaff;
+$pale-teal: #f5feff;
+$dark-green: #0a5c40;
+$green: #14b881;
+$light-green: #a3f5d9;
+$pale-green: #f6fefb;
+$dark-yellow: #997400;
+$yellow: #ffce33;
+$light-yellow: #fff3cc;
+$pale-yellow: #fffdf5;
+$dark-red: #660a00;
+$red: #cc1400;
+$light-red: #ffd1cc;
+$pale-red: #fff6f5;
+
+
+$theme-colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "accent": $accent,
+  "success": $success, 
+  "warning": $warning, 
+  "danger": $danger,
+  "info": $info,
+  "metal": $metal,
+  "focus": $focus,
+  "grey-20": $grey-20, 
+  "grey-30": $grey-30,
+  "grey-50": $grey-50,
+  "grey-70": $grey-70,
+  "grey-90": $grey-90,
+  "grey-95": $grey-95,
+  "base": $base,
+  "light": $light,
+  "dark": $dark,
+  "white": $white,
+  "black": $black,
+  "blue": $blue
+);
+
+/* Responsive Breakpoints */
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+) !default;
+$gt-small-width: map-get($grid-breakpoints, sm) !default; // 576
+$gt-medium-width: map-get($grid-breakpoints, md) !default; // 768
+$gt-large-width: map-get($grid-breakpoints, lg) !default; // 992
+$gt-xlarge-width: map-get($grid-breakpoints, xl) !default; // 1200
+
+/* Shadows */
+$shadow-sm: 0 2px 4px 0 rgba(0,0,0,0.10);
+$shadow-md: 0 4px 8px 0 rgba(0,0,0,0.12), 0 2px 4px 0 rgba(0,0,0,0.08); //default
+$shadow-lg: 0 15px 30px 0 rgba(0,0,0,0.11), 0 5px 15px 0 rgba(0,0,0,0.08);
+$shadow-elevate: $shadow-lg; // on hover
+
+/* Spacing Guidelines */
+$spacing-xxs: 0.333rem;     // small gap           - 5px    (xxs)
+$spacing-xs: 0.667rem;      // Related Directly    - 10px   (xs)
+$spacing-sm: 1rem;          // Related Indirectly  - 15px   (sm)
+$spacing-md: 1.33rem;       // Related Group       - 20px   (md)  //default
+$spacing-lg: 2rem;          // Unrelated Group     - 30px   (lg)
+$spacing-xl: 2.667rem;      // New Section         - 40px   (xl)
+$spacing-xxl: 4rem;         // New Section (Large) - 60px   (xxl)
+
+$spacing-sizes: (
+  "0": 0,
+  "5": $spacing-xxs,
+  "10": $spacing-xs,
+  "15": $spacing-sm,
+  "20": $spacing-md,
+  "30": $spacing-lg,
+  "40": $spacing-xl,
+  "60": $spacing-xxl,
+  "15-em": 1.5rem,
+  "22-em": 2.2rem,
+  "xxs": $spacing-xxs,
+  "xs": $spacing-xs,
+  "sm": $spacing-sm,
+  "md": $spacing-md,
+  "lg": $spacing-lg,
+  "xl": $spacing-xl,
+  "xxl": $spacing-xxl,  
+  );
+
+/* Animations */
+$animation-xs: all 0.1s cubic-bezier(.25,.8,.25,1);
+$animation-sh: all 0.2s cubic-bezier(.25,.8,.25,1);
+$animation-md: all 0.35s cubic-bezier(.25,.8,.25,1); //default
+$animation-lg: all 0.5s cubic-bezier(.25,.8,.25,1);
+$animation-xl: all 0.8s cubic-bezier(.25,.8,.25,1);
+$animation-xxl: all 1.2s cubic-bezier(.25,.8,.25,1);
+
+$animation-default: $animation-md;
+
+$animation-fade-in: fade-in 1s both;
+$animation-fade-out: fade-out 1s ease-out both;
+$animation-fade-in-top: fade-in-top 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+$animation-fade-in-bottom: fade-in-bottom 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+$animation-puff-in-center: puff-in-center 0.7s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+$animation-puff-out-center: puff-out-center 1s cubic-bezier(0.165, 0.840, 0.440, 1.000) both;
+$animation-shake-horizontal: shake-horizontal 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+$animation-focus-in-contract-bck: focus-in-contract-bck 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both; // for text
+$animation-scale-in-ver-top: scale-in-ver-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+$animation-scale-out-ver-top: scale-out-ver-top 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+$animation-pulse-infinite: shadow-pulse-delayed 5s infinite;
+$animation-pulse-3: shadow-pulse-delayed 5s 3;
+$animation-pulse-1: shadow-pulse 1s 1;
+
+// You can use any of these names to animate HTML elements on initiation
+$animations: (
+  "fade-in": $animation-fade-in,
+  "fade-out": $animation-fade-out,
+  "fade-in-top": $animation-fade-in-top,
+  "fade-in-bottom": $animation-fade-in-bottom,
+  "puff-in-center": $animation-puff-in-center,
+  "puff-out-center": $animation-puff-out-center,
+  "shake-horizontal": $animation-shake-horizontal,
+  "focus-in-contract-bck": $animation-focus-in-contract-bck,
+  "scale-in-ver-top": $animation-scale-in-ver-top,
+  "scale-out-ver-top": $animation-scale-out-ver-top,
+  "pulse-infinite": $animation-pulse-infinite,
+  "pulse-3": $animation-pulse-3,
+  "pulse-1": $animation-pulse-1
+);
+
+/* Borders */
+$border-size-sm: 0.125rem;
+$border-size-md: 0.25rem;
+$border-size-lg: 0.5rem;
+$border-size-1: 1px;
+$border-size-2: 2px;
+$border-size-3: 3px;
+$border-size-5: 5px;
+$border-size-10: 10px;
+
+$border-sizes: (
+  "sm": $border-size-sm,
+  "md": $border-size-md,
+  "lg": $border-size-lg,
+  "1": $border-size-1,
+  "2": $border-size-2,
+  "3": $border-size-3,
+  "5": $border-size-5,
+  "10": $border-size-10
+);
+
+/* Corners */
+$border-radius-sm: 0.125rem;
+$border-radius-md: 0.25rem;
+$border-radius-lg: 0.5rem;
+$border-radius-2: 2px;
+$border-radius-4: 4px;
+$border-radius-6: 6px;
+$border-radius-10: 10px;
+$border-radius-15: 15px;
+$border-radius-20: 20px;
+$border-radius-half: 50%;
+$border-radius-full: 100%;
+
+$border-radius-sizes: (
+  "sm": $border-radius-sm,
+  "md": $border-radius-md, //default
+  "lg": $border-radius-lg,
+  "2": $border-radius-2,
+  "4": $border-radius-4,
+  "6": $border-radius-6,
+  "10": $border-radius-10,
+  "15": $border-radius-15,
+  "20": $border-radius-20,
+  "half": $border-radius-half,
+  "full": $border-radius-full,
+);

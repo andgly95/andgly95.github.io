@@ -1,0 +1,6 @@
+{
+  "description": "put something to this super root file",
+  "SOME_CUSTOM_API_URL": "GOOGLE.COM",
+  "publicApiUri": "https://a806-housingconnectapi.nyc.gov/HPDPublicAPI/api/",
+  "identityApiUri": "https://a806-housingconnectapi.nyc.gov/IdentityAdminAPI/api/"
+}

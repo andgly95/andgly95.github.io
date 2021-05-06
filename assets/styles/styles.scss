@@ -1,0 +1,938 @@
+//@import '~bootstrap/scss/mixins/buttons'; // Was this implementation for this not completed or just taken from another project?
+@import './variables';
+//@import './../images/bg';
+
+/* This stylesheet is for general purpose styles specific to Housing Connect */
+/* Please keep these styles organized by category/documentation */
+
+/* Typography */
+html,
+body {
+  background-color: $base !important;
+  font-family: $font-main !important;
+  font-size: $html-font-size-xs !important;
+  font-weight: $html-font-weight !important;
+  overflow-x: hidden;
+
+  .m-page {
+  }
+
+  @media (min-width: $gt-medium-width) {
+    font-size: $html-font-size-sm !important;
+  }
+
+  @media (min-width: $gt-large-width) {
+    font-size: $html-font-size-md !important;
+  }
+
+  @media (min-width: $gt-xlarge-width) {
+    font-size: $html-font-size-lg !important;
+  }
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: $font-heading !important;
+  font-weight: 300 !important;
+}
+
+.font-weight-sm, .fw-sm {
+  font-weight: 300 !important;
+}
+
+.font-weight-md, .fw-md {
+  font-weight: 400 !important;
+}
+
+.font-weight-lg, .fw-lg {
+  font-weight: 500 !important;
+}
+
+.font-weight-xl, .fw-xl {
+  font-weight: 600 !important;
+}
+
+
+.font-xs {
+  font-size: 0.6rem !important;
+}
+
+.font-sm {
+  font-size: 0.8rem !important;
+}
+
+.font-md {
+  font-size: 1rem !important;
+}
+
+.font-lg {
+  font-size: 1.2rem !important;
+}
+
+.font-xl {
+  font-size: 1.4rem !important;
+}
+
+.font-xxl {
+  font-size: 1.8rem !important;
+}
+
+.static-info {
+  display: table;
+  padding-bottom: $spacing-sm;
+
+  label, .label, .name {
+    font-size: 0.95rem;
+    font-weight: 300;
+    margin-bottom: $spacing-xxs;
+  }
+
+  .value {
+    font-size: 1.05rem;
+    font-weight: 400;
+  }
+
+  &.row {
+    label, .label, .name {
+      &[class*="col"]:not([class*="12"]) {
+        text-align: right;
+        padding-bottom: 0;
+      }
+    }
+  }
+}
+
+.la, .fa {
+  transition: $animation-md;
+}
+
+.m-portlet .m-portlet__body.fit {
+  padding: 0;
+}
+
+/* Backgrounds */
+.bg {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &.bg-light-nyc-1 {
+    background-image: url('/assets/images/bg/bg-nyc-light-1.jpg');
+  }
+
+  &.bg-light-nyc-2 {
+    background-image: url('/assets/images/bg/bg-nyc-light-2.jpg');
+  }
+}
+
+.section {
+  position: relative;
+  overflow: hidden;
+
+  .bg {
+    // background-attachment: fixed;
+    // background-position: center center;
+    // background-repeat: no-repeat;
+    // background-size: cover;
+    background-color: $dark;
+    -webkit-filter: brightness(0.7);
+    filter: brightness(0.7);
+    position: absolute;
+    left: 0%;
+    width: 100%;
+    top: 0%;
+    height: 100%;
+  }
+
+  &.bg-blur {
+    -webkit-box-shadow: inset 0px 0px 40px 40px rgba(0, 0, 0, 0.50);
+    -moz-box-shadow: inset 0px 0px 40px 40px rgba(0, 0, 0, 0.50);
+    box-shadow: inset 0px 0px 40px 40px rgba(0, 0, 0, 0.50);
+
+    .bg {
+      -webkit-filter: blur(20px) brightness(0.7);
+      filter: blur(20px) brightness(0.7);
+      left: -3%;
+      width: 106%;
+      top: -3%;
+      height: 106%;
+
+      &.bw {
+        filter: blur(40px) brightness(0.8) grayscale(100%);
+      }
+
+      &.color1, &.hue-45 {
+        filter: blur(20px) brightness(0.8) hue-rotate(45deg);
+      }
+
+      &.color2, &.hue-90 {
+        filter: blur(20px) brightness(0.8) hue-rotate(90deg);
+      }
+
+      &.color3, &.hue-135 {
+        filter: blur(20px) brightness(0.8) hue-rotate(135deg);
+      }
+
+      &.color4, &.hue-180 {
+        filter: blur(20px) brightness(0.8) hue-rotate(180deg);
+      }
+
+      &.color5, &.hue-225 {
+        filter: blur(20px) brightness(0.8) hue-rotate(225deg);
+      }
+
+      &.color6, &.hue-270 {
+        filter: blur(20px) brightness(0.8) hue-rotate(270deg);
+      }
+
+      &.color7, &.hue-315 {
+        filter: blur(20px) brightness(0.8) hue-rotate(315deg);
+      }
+    }
+
+    img.bg {
+      display: block;
+      border-radius: 2px 2px 0 0;
+      position: absolute;
+      left: -2%;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      bottom: 0;
+      width: 104%;
+      border-style: none;
+      filter: blur(20px) brightness(0.75);
+      //transition-delay: 1s;
+      transition: all 0.5s linear .5s;
+      object-fit: cover;
+    }
+  }
+}
+
+
+
+/* shadows */
+/* using shadow-sm, shadow-md and shadow-lg conflicts with metronic styles*/
+.shadow-none {
+  box-shadow: none !important;
+}
+
+.shadow-1 {
+  box-shadow: $shadow-sm !important;
+}
+
+.shadow, .shadow-2 {
+  box-shadow: $shadow-md !important;
+}
+/* default */
+.shadow-3 {
+  box-shadow: $shadow-lg !important;
+}
+/*.shadow-xl, .shadow-4 { box-shadow: $shadow-xl !important; }*/
+
+[class*="shadow"].hoverable {
+  transition: $animation-lg !important;
+}
+
+[class*="shadow"].hoverable:hover {
+  box-shadow: $shadow-elevate !important;
+  transition: $animation-lg !important;
+}
+
+/* Modals */
+.modal-full {
+  max-width: 96% !important;
+}
+
+.modal-xl {
+  max-width: 1100px !important;
+}
+
+.modal-xxl {
+  max-width: 1300px !important;
+}
+
+/* Material Tables */
+mat-cell.text-right {
+  justify-content: flex-end;
+}
+
+mat-row.hoverable:hover,
+mat-table.hoverable mat-row:hover {
+  background: #fbfbfb;
+  transition: all 0.2s ease-in;
+}
+
+table {
+  width: 100%;
+  font-size: 14px;
+
+  thead {
+    &.col-group {
+      tr {
+        th {
+          border-left: 1px solid #f4f5f8;
+
+          &:first-of-type {
+            border-left: none;
+          }
+        }
+      }
+    }
+  }
+
+  tr.wrap th, tr.wrap td, tr td.wrap, tr th.wrap {
+    white-space: normal;
+  }
+
+  &.mat-table {
+
+    td {
+      vertical-align: middle;
+    }
+  }
+
+  &.expandable, &.hoverable {
+    width: 100%;
+
+    tr.detail-row {
+      height: 0 !important;
+      min-height: 0 !important;
+      //display: none;
+      //-webkit-animation: scale-in-ver-top 0.33s ease-out both;
+      //animation: scale-in-ver-top 0.33s ease-out both;
+      //transition: all .25s cubic-bezier(0.4, 0.0, 0.2, 1);
+      td {
+        border-top: none;
+      }
+    }
+
+    tr:not(.expanded-row):not(.detail-row):hover, tr.expanded-row {
+      background: #fafafa;
+    }
+
+    tr:not(.expanded-row):active, tr.mat-row:not(.expanded-row):active {
+      background: #efefef;
+    }
+
+    tr.detail-row:active {
+      background: none !important;
+    }
+
+    .table-row td {
+      border-bottom-width: 0;
+    }
+
+    .detail-container {
+      overflow: hidden;
+      //display: flex;
+      .detail-content {
+        padding: 20px 0;
+        display: block;
+      }
+    }
+  }
+
+  &.inline-editable {
+    overflow-y: hidden;
+
+    & > thead {
+      & > tr {
+        & > th {
+          padding: 1rem .5rem;
+        }
+      }
+    }
+
+    & > tbody {
+      & > tr {
+
+        & > td {
+          padding: 0 .5rem;
+          vertical-align: middle;
+
+          .form-control {
+            border: none;
+            border-radius: 0;
+            padding: .85em 0;
+            text-overflow: ellipsis;
+            font-family: inherit;
+          }
+
+          .form-control, .mat-slide-toggle {
+            background: no-repeat;
+            height: calc(3.95rem + 2px);
+            background-image: linear-gradient(to bottom, $success, $success), linear-gradient(to bottom, silver, silver);
+            /* sizes for the 2 images (default state) */
+            background-size: 0 2px, 0 1px;
+            /* positions for the 2 images. Change both "50%" to "0%" or "100%" and tri again */
+            background-position: 50% 100%, 50% 100%;
+            /* animation solely on background-size */
+            transition: background-size 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+
+            &:hover:not([disabled]) {
+              background-size: 0 2px, 100% 1px;
+              outline: none;
+            }
+
+            &:disabled:hover {
+              background-size: 0 2px, 0 1px;
+            }
+
+            &:disabled:hover {
+              cursor: default;
+            }
+
+            &:focus {
+              background-size: 100% 2px, 100% 1px;
+              outline: none;
+            }
+
+            &.ng-dirty {
+              font-weight: 500;
+              background-size: 100% 3px, 100% 1px;
+              background-image: linear-gradient(to bottom, $primary, $primary), linear-gradient(to bottom, silver, silver);
+            }
+          }
+
+          select.form-control {
+            cursor: pointer;
+          }
+
+          .m-input-icon {
+
+            & > .m-input-icon__icon {
+              width: 1.3rem;
+
+              [class*=" la-"] {
+                font-size: 1.2em;
+              }
+            }
+
+            &.m-input-icon--left .form-control {
+              padding-left: 1.4rem;
+            }
+
+            &.m-input-icon--right .form-control {
+              padding-right: 1.4rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.selectable {
+    td .selector {
+      cursor: pointer;
+    }
+
+    .selector .indicator {
+      line-height: 22px;
+      background: #e2e5ec;
+      display: block;
+      border-radius: 3px;
+      position: relative;
+      top: 1px;
+      left: 0;
+      height: 22px;
+      width: 22px;
+      text-align: center;
+      margin: 8px 0;
+      font-size: 0.9rem !important;
+      cursor: pointer;
+      font-weight: 400;
+      transition: all 0.3s;
+
+      i {
+        font-size: 0.9rem !important;
+      }
+    }
+
+    th.selector .indicator {
+      margin: 0;
+    }
+
+    tr.table-row.selected, tr.selected {
+      background: #eff6fd;
+    }
+
+    tr.table-row.selected, tr.selected, .selector.selected {
+
+      .indicator {
+        background: $success;
+        color: #fff;
+
+        i {
+          line-height: 22px;
+        }
+      }
+    }
+  }
+
+  &.glass {
+    background: rgba(0, 0, 0, 0.1) !important;
+
+    thead {
+      tr {
+        th, .mat-header-cell {
+          color: rgba(255, 255, 255, 0.7) !important;
+          border-bottom-color: rgba(255, 255, 255, 0.2) !important;
+          padding: 1rem;
+          border-top: none !important;
+        }
+
+        th:last-of-type {
+          padding-right: 24px;
+        }
+
+        th:first-of-type {
+          padding-left: 24px;
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        td, .mat-cell, .mat-footer-cell {
+          color: rgba(255, 255, 255, 0.9) !important;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+          border-top: none !important;
+          padding: 1rem;
+        }
+
+        td:last-of-type {
+          padding-right: 24px;
+        }
+
+        td[rowspan] {
+          vertical-align: middle;
+        }
+
+        td:first-of-type, td[rowspan] + td:not([rowspan]) {
+          padding-left: 24px;
+        }
+
+        td[rowspan] + td:not([rowspan]) {
+          border-left: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        td:not([rowspan]) + td[rowspan] {
+          border-left: 1px solid rgba(255, 255, 255, 0.1);
+        }
+      }
+
+      & + tbody {
+        border-top: 1px solid rgba(255, 255, 255, 0.5) !important;
+      }
+    }
+
+    tr:active, tr:active .mat-cell, tr:active .mat-header-cell {
+      background: rgba(0, 0, 0, 0.1) !important;
+      transition: 0.3s all;
+    }
+  }
+}
+
+.table th,
+.mat-header-cell {
+  font-weight: 500 !important;
+  font-size: 13px !important;
+  color: rgba(0, 0, 0, 0.54) !important;
+  font-family: $font-main !important;
+}
+
+/* Buttons, Badges, icons */
+.btn ~ .btn {
+  margin-left: 5px;
+}
+
+.btn {
+  .m-badge {
+    position: absolute;
+    right: -8px;
+    top: -8px;
+    z-index: 1;
+  }
+}
+
+.btn {
+  transition: $animation-md;
+}
+
+.btn .loader-container {
+  position: relative;
+  height: 16px;
+  width: 16px;
+  top: -2px;
+  left: -2px;
+}
+
+/* Lists */
+.list-group {
+  margin-bottom: $spacing-lg;
+
+  .list-item {
+    display: flex;
+    padding-top: $spacing-md;
+    padding-bottom: $spacing-md;
+    align-items: center;
+    border-bottom: 0.07rem dashed #ebedf2;
+    transition: $animation-md;
+
+    .list-item-icon {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+      position: relative;
+      padding-right: 1.2rem;
+
+      i {
+        //width: 3.5rem;
+        border-radius: 50%;
+        font-size: 3em;
+      }
+
+      .btn {
+
+        i {
+          font-size: 1.2em;
+        }
+      }
+
+      &.icon-sm {
+
+        i {
+          width: 2rem;
+          border-radius: 0;
+          font-size: 1.5em;
+        }
+      }
+
+      .icon-label {
+        position: absolute;
+        bottom: -6px;
+        left: 50%;
+        color: white;
+        background: $metal-dark;
+        /* box-shadow: 0px 1px 4px 0px rgba(69,65,78,0.2); */
+        font-size: 9px;
+        transform: translateX(-50%);
+        padding: 2px 4px;
+        border-radius: 3px;
+        text-transform: capitalize;
+      }
+
+      .icon-label.label-info {
+        color: white;
+        background: $info;
+      }
+    }
+
+    .list-item-thumbnail {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+      position: relative;
+      margin-right: $spacing-md;
+
+      .thumbnail-container {
+        position: relative;
+        width: 4rem;
+        height: 4rem;
+        padding-top: 75%; /* 4:3 aspect ratio */
+        overflow: hidden;
+        border-radius: 6px;
+
+        img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: $animation-lg;
+        }
+      }
+    }
+
+    .list-item-label {
+      display: table-cell;
+      width: 100%;
+      /*padding-left: 1.2rem;*/
+      //padding-right: 1.2rem;
+      font-size: 1rem;
+      vertical-align: middle;
+
+      .list-item-title {
+        font-size: 1.1rem;
+        font-weight: 400;
+        color: inherit;
+        margin-bottom: 2px;
+      }
+
+      .list-item-sub-title {
+        font-size: .95rem;
+        opacity: 0.9;
+      }
+    }
+
+    .list-item-value {
+      display: inline-flex;
+      vertical-align: middle;
+      padding-left: 10px;
+    }
+
+    .list-item-menu {
+      display: inline-flex;
+      vertical-align: middle;
+      padding-left: 10px;
+    }
+  }
+
+  &.no-separator {
+    .list-item {
+      border-bottom: none;
+    }
+  }
+
+  &.condensed {
+
+    .list-item {
+      padding-top: 0.6rem;
+      padding-bottom: 0.6rem;
+    }
+  }
+
+  &.clickable {
+    .list-item:hover {
+      background-color: $grey-95;
+      cursor: pointer;
+
+      &.active, &:focus {
+        background-color: $grey-90;
+      }
+    }
+  }
+
+  .list-item:last-child {
+    border-bottom: none;
+  }
+
+  .list-item.clickable:hover {
+    background: $grey-95;
+    transition: all 0.25s;
+  }
+
+  .list-item.clickable:active {
+    background: #eff6fd !important;
+    transition: all 0.25s;
+  }
+}
+/* List group extensions */
+.m-portlet__body, .portlet-body, .modal-body, .card {
+  .list-group {
+    &.fit {
+      margin-left: -$spacing-lg;
+      margin-right: -$spacing-lg;
+
+      .list-item {
+        padding-left: $spacing-lg;
+        padding-right: $spacing-lg;
+      }
+    }
+  }
+}
+
+/* label markers */
+/* colored indicators on the side of content */
+.label-marker {
+  position: relative;
+  padding-left: $spacing-md;
+
+  &:after {
+    content: '';
+    height: 100%;
+    display: block;
+    width: 5px;
+    background-color: $grey-90;
+    border-radius: 5px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  &.label-marker-right {
+    padding-right: $spacing-md;
+    padding-left: unset;
+
+    &:after {
+      left: unset;
+      right: 0;
+    }
+  }
+
+  @each $color, $value in $theme-colors {
+    &.label-marker-#{$color} {
+      &:after {
+        background-color: $value !important;
+      }
+    }
+  }
+}
+
+/* dropdown */
+a[ngbdropdowntoggle] {
+  text-decoration: none;
+  -webkit-appearance: menulist;
+}
+
+.dropdown, .dropup {
+  &.no-icon {
+    .dropdown-toggle::after {
+      display: none;
+    }
+  }
+
+  .dropdown-menu {
+    .dropdown-item {
+      margin-left: 0;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+/* Subway */
+.subway-type-iconset {
+  border-radius: 50%;
+  height: 1.3rem;
+  width: 1.3rem;
+  line-height: 1.3rem;
+  text-align: center;
+  display: inline-block;
+
+  + .subway-type-iconset {
+    margin-left: 0.25rem;
+  }
+}
+
+.subway-type-1,
+.subway-type-2,
+.subway-type-3 {
+  background: red;
+  color: $white;
+}
+
+.subway-type-4,
+.subway-type-5,
+.subway-type-6 {
+  background: #00933c;
+  color: $white;
+}
+
+.subway-type-7 {
+  background: #b933ad;
+  color: $white;
+}
+
+.subway-type-A,
+.subway-type-C,
+.subway-type-E {
+  background: #0069c0;
+  color: $white;
+}
+
+.subway-type-G {
+  background: #6cbe45;
+  color: $white;
+}
+
+.subway-type-L {
+  background: #a7a9ac;
+  color: $white;
+}
+
+.subway-type-S {
+  background: darkGray;
+  color: $white;
+}
+
+.subway-type-N,
+.subway-type-Q,
+.subway-type-R,
+.subway-type-W {
+  background: #fbd500;
+  color: $dark;
+}
+
+.subway-type-B,
+.subway-type-D,
+.subway-type-F,
+.subway-type-M {
+  background: #ff6319;
+  color: $white;
+}
+
+.subway-type-J,
+.subway-type-Z {
+  background: #996633;
+  color: $white;
+}
+
+/* Interactive */
+.hoverable {
+  .visible-on-hover {
+    display: block !important;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.05s ease-in;
+    -webkit-animation: $animation-fade-out;
+    animation: $animation-fade-out;
+  }
+
+  &:hover {
+    .visible-on-hover {
+      display: initial;
+      max-height: 100%;
+      overflow: visible;
+      opacity: 1;
+      transition: all 0.05s ease-out;
+      -webkit-animation: $animation-fade-in;
+      animation: $animation-fade-in;
+    }
+  }
+}
+
+// Questionnaire (this should be moved to an appropriate place)
+.action-section {
+  margin-top: $spacing-xl;
+}
+
+/*************** Undocumented below *********************/
+textarea.ng-invalid.ng-dirty,
+textarea.ng-invalid.ng-touched,
+input.ng-invalid.ng-dirty,
+input.ng-invalid.ng-touched {
+  border-bottom-color: #e91e63 !important;
+  box-shadow: 0 1px 0 0 #e91e63 !important;
+}
+
+/*for error div i*/
+div.error-message i {
+  vertical-align: middle !important;
+}
+
+// invalid highlight for select tag
+select.ng-touched.ng-invalid {
+  border-bottom-color: #e91e63 !important;
+  box-shadow: 0 1px 0 0 #e91e63 !important;
+}
+
+// in progress
+.htd-quote-blog {
+  background: #eeeeee;
+  box-shadow: 1px 1px 1px 1px #d9d9d9;
+  padding: 1em;
+}

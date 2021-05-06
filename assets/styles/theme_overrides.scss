@@ -1,0 +1,793 @@
+@import "../styles/variables";
+
+/* Only styles related to overriding some Metronic theme style */
+
+/* Theme colors */
+@each $color, $value in $theme-colors {
+  .btn-#{$color} {
+    //@extend .btn;
+    background-color: $value !important;
+    border-color: $value !important;
+
+    &:hover,
+    &:active,
+    &.active,
+    &:focus {
+      //@extend .btn:hover;
+      background-color: darken($value, $color-offset) !important;
+      border-color: darken($value, $color-offset) !important;
+    }
+
+    &:not(:disabled):hover,
+    &:not(:disabled):focus {
+      //box-shadow: $shadow-elevate !important;
+    }
+  }
+
+  .btn-outline-#{$color} {
+    background-color: transparent;
+    border-color: $value !important;
+
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      background-color: darken($value, $color-offset) !important;
+      border-color: darken($value, $color-offset) !important;
+    }
+  }
+
+  .btn-hover-#{$color} {
+    &:hover,
+    &.active,
+    &.active {
+      background-color: darken($value, $color-offset) !important;
+      border-color: darken($value, $color-offset) !important;
+    }
+  }
+
+  .bg-#{$color} {
+    background-color: $value !important;
+  }
+
+  .font-#{$color} {
+    color: $value !important;
+  }
+
+  .m-badge--#{$color} {
+    background-color: $value !important;
+  }
+
+  .mat-progress-bar.progress-#{$color} {
+    .mat-progress-bar-background {
+      fill: $grey-95 !important;
+    }
+
+    .mat-progress-bar-buffer {
+      background-color: $grey-95 !important;
+    }
+
+    .mat-progress-bar-fill::after {
+      background-color: $value !important;
+    }
+  }
+
+  .mat-chip {
+    &.clickable {
+      cursor: pointer;
+    }
+
+    &.mat-standard-chip {
+      &.mat-#{$color} {
+        background: $grey-95;
+
+        &.mat-chip-selected {
+          background: $value !important;
+          box-shadow: $shadow-md;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1400px !important;
+  }
+}
+
+/* Menus */
+.header-container {
+  .navigation-mobile {
+    .navigation-mobile-menu {
+      box-shadow: 0px -3px 0 0 $primary, $shadow-md !important;
+
+      &:after {
+        border-bottom: 10px solid $primary !important;
+      }
+    }
+  }
+}
+
+.navigation-mobile-icon {
+  mat-icon {
+    color: $primary !important;
+  }
+}
+/* Menu headers */
+/* Headers */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  margin-bottom: 1.2rem !important;
+}
+
+.m-portlet__body {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .h1,
+  .h2,
+  .h3,
+  .h4,
+  .h5,
+  .h6 {
+    margin-bottom: 1.2rem !important;
+  }
+}
+
+.m-brand {
+  padding: 0;
+  //width: 151px; //Fixes a weird pixel alignment issue (may need to be removed)
+}
+
+.m-subheader {
+  padding: 20px 30px 0 30px !important;
+}
+
+.m-body .m-content {
+  padding: 20px 30px 30px 30px !important;
+}
+
+.m-subheader .m-subheader__title {
+  display: inline-block;
+}
+
+.m-subheader .m-subheader__title.m-subheader__title--separator {
+  border-right: 1px solid #e2e5ec;
+}
+
+/* Portlet */
+.m-portlet {
+  position: relative;
+  margin-bottom: $spacing-lg !important;
+
+  .m-portlet__head {
+    padding-left: $spacing-lg !important;
+    padding-right: $spacing-lg !important;
+
+    .m-portlet__head-caption {
+      font-size: 1.1rem;
+    }
+
+    .m-portlet__head-tools {
+      .m-portlet__nav {
+        .m-portlet__nav-item:last-child {
+          padding-right: 0;
+        }
+      }
+    }
+  }
+
+  .m-portlet__body {
+    padding: $spacing-lg;
+  }
+
+  &.m-portlet--rounded-force {
+    overflow: unset !important;
+  }
+}
+
+@media (min-width: 1025px) {
+  .m-portlet {
+    &.m-portlet--full-height {
+      height: auto !important;
+
+      .m-portlet__body {
+        height: calc(100% - #{$spacing-lg} - #{$spacing-lg}) !important;
+      }
+    }
+  }
+}
+
+/* Spacial adjustments */
+.m-body .m-content {
+  padding-top: 20px;
+}
+
+@media (min-width: 1025px) {
+  .m-form .m-form__group:first-child {
+    padding-top: 15px !important;
+  }
+}
+
+/* Buttons */
+.btn {
+  line-height: 1.25rem !important;
+  font-family: $font-heading !important;
+
+  &:disabled {
+    background-color: $grey-90 !important;
+    border-color: $grey-90 !important;
+    color: $grey-50 !important;
+    cursor: not-allowed;
+  }
+  /*&.btn-outline-secondary {
+    color: $dark !important;
+    border-color: $secondary !important;
+
+    &:hover {
+      border-color: darken($secondary, $color-offset) !important;
+    }
+  }*/
+  & > * {
+    display: inline-flex;
+    align-content: center;
+    align-items: flex-end;
+  }
+
+  &[style*="box-shadow: none"] {
+    box-shadow: $shadow-md !important;
+  }
+
+  & > i:first-child {
+    //margin-right: $spacing-xxs;
+  }
+
+  & > i:last-child {
+    //margin-left: $spacing-xxs;
+  }
+
+  &.btn-sm {
+    height: 2rem;
+    padding: 0.1rem 0.8rem;
+  }
+
+  &.btn-xs {
+    height: 1.5rem;
+  }
+
+  &.m-btn--icon {
+    &.m-btn--icon-only {
+      //line-height: 3rem;
+      width: 3rem !important;
+      height: 3rem !important;
+      padding: 0.8rem 0 !important;
+
+      &.btn-sm {
+        height: 2rem !important;
+        width: 2rem !important;
+        //line-height: 2rem !important;
+        padding: 0.3rem 0 !important;
+      }
+      /*&.btn-xs {
+        height: 1.25rem !important;
+        width: 1.25rem !important;
+        padding: 0.2rem;
+      }*/
+      i {
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+        top: unset;
+        left: unset;
+        transform: none;
+        -webkit-transform: none;
+      }
+    }
+  }
+}
+
+/* Material overrides */
+.mat-horizontal-content-container {
+  padding: 20px 5px 5px 5px !important;
+  margin: -5px;
+}
+
+/* Stepper */
+
+.mat-stepper-vertical {
+  .mat-vertical-content-container {
+    .mat-vertical-stepper-content {
+      //overflow: visible;
+    }
+  }
+}
+
+.mat-stepper-vertical .mat-step-icon,
+.mat-stepper-vertical .mat-step-icon-not-touched {
+  height: 48px !important;
+  width: 48px !important;
+}
+
+.mat-stepper-vertical .mat-vertical-stepper-header .mat-step-icon,
+.mat-vertical-stepper-header .mat-step-icon-not-touched {
+  margin-right: 24px !important;
+  z-index: 2;
+}
+
+.mat-stepper-vertical .mat-stepper-vertical-line::before {
+  top: -12px !important;
+  bottom: -12px !important;
+}
+
+.mat-stepper-vertical .mat-step-header {
+  /*background: #fbfbfb;*/
+  border-radius: 12px;
+}
+
+.mat-stepper-vertical .mat-vertical-stepper-header {
+  padding: 12px 0px !important;
+  max-height: 48px !important;
+  margin: 12px 0px !important;
+}
+
+.mat-stepper-vertical .mat-step:first-child .mat-vertical-stepper-header:first-child {
+  margin-top: 0px !important;
+}
+
+.mat-stepper-vertical .mat-step-header.cdk-keyboard-focused,
+.mat-stepper-vertical .mat-step-header.cdk-program-focused,
+.mat-stepper-vertical .mat-step-header:hover {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+.mat-stepper-vertical .mat-vertical-content-container {
+  margin-left: 24px !important;
+}
+
+.mat-stepper-vertical .mat-vertical-content {
+  padding: 24px 24px 24px 48px !important;
+}
+
+.mat-stepper-vertical .mat-step-header.cdk-keyboard-focused,
+.mat-step-header.cdk-program-focused,
+.mat-step-header:hover {
+  background-color: none !important;
+}
+
+.mat-stepper-vertical {
+  .mat-step-header {
+    &[aria-selected="false"] .mat-step-icon {
+      background: #3ad4b5;
+    }
+
+    .mat-step-icon-content {
+      color: $secondary-blue;
+      font-size: 1.4rem;
+    }
+
+    .mat-step-icon-not-touched {
+      background: #f5f5f5;
+      margin-right: 0 !important;
+
+      .mat-step-icon-content {
+        color: #757575;
+      }
+
+      & + .mat-step-label.mat-step-label-active {
+        padding-left: 53px;
+      }
+    }
+
+    .mat-step-label {
+      font-weight: 100;
+      font-size: 22px;
+
+      &.mat-step-label-active {
+        background: #f5f5f5;
+        color: #757575 !important;
+        padding-left: 72px;
+        position: absolute;
+        padding-right: 24px;
+        border-radius: 48px;
+        z-index: 1;
+        line-height: 48px;
+      }
+
+      &.mat-step-label-selected {
+        background: $secondary-blue;
+        color: #ffffff !important;
+        padding-left: 74px;
+      }
+    }
+  }
+
+  .mat-step-icon .mat-icon {
+    font-size: 20px !important;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -55%);
+  }
+}
+
+.mat-step-header .mat-step-icon {
+  background-color: $white !important;
+  border: $secondary-blue 1px solid;
+}
+
+.mat-step-header .mat-step-icon-content {
+  color: $secondary-blue;
+}
+
+/* Mat-Tabs */
+.mat-tab-group {
+  .mat-tab-header {
+    .mat-tab-label-container {
+      .mat-tab-list {
+        .mat-ink-bar {
+          background-color: $primary;
+          height: 5px;
+        }
+
+        .mat-tab-labels {
+          .mat-tab-label {
+            .mat-tab-label-content {
+              //font-size: 1.2rem;
+              font-family: $font-heading;
+              font-weight: 400;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .mat-tab-body-wrapper {
+    //Fix to prevent shadows from being cut off by overflow: hidden
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-left: -1rem;
+    margin-right: -1rem;
+
+    .mat-tab-body {
+      &.mat-tab-body-active {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        margin-left: -1rem;
+        margin-right: -1rem;
+      }
+    }
+  }
+
+  .mat-tab-label i {
+    margin-right: 5px;
+  }
+
+  &.fix-disabled {
+    //fix for duplicate tab-content bug when clicking too fast
+    .mat-tab-label.mat-tab-disabled,
+    .mat-tab-link.mat-tab-disabled {
+      color: inherit !important;
+      cursor: pointer;
+    }
+  }
+
+  &.no-tabs {
+    //hides tabs
+    margin-top: -$spacing-xs;
+
+    & > .mat-tab-header {
+      display: none;
+    }
+
+    .mat-tab-body-wrapper {
+      /*overflow-y: visible !important;
+      overflow-x: hidden !important;*/
+      .mat-tab-body {
+        //margin-top: -$spacing-xs;
+        padding-top: $spacing-xs;
+        /*overflow-y: visible !important;
+        overflow-x: hidden !important;*/
+      }
+    }
+  }
+}
+
+.mat-tab-body .mat-tab-body-content {
+  padding-top: 0 !important;
+}
+
+.mat-tab-group.mat-primary .mat-tab-label:not(.mat-tab-disabled):focus,
+.mat-tab-group.mat-primary .mat-tab-link:not(.mat-tab-disabled):focus,
+.mat-tab-nav-bar.mat-primary .mat-tab-label:not(.mat-tab-disabled):focus,
+.mat-tab-nav-bar.mat-primary .mat-tab-link:not(.mat-tab-disabled):focus {
+  background-color: rgba(142, 136, 213, 0) !important;
+}
+
+.mat-tab-body.mat-tab-body-active {
+  overflow-y: hidden !important;
+}
+
+/* Mat-Card */
+.mat-card {
+  /*font-family: Poppins !important;*/
+}
+
+.card {
+  border: none !important;
+}
+
+/* Mat-Table */
+
+.mat-table {
+  .mat-cell {
+    &.text-center {
+      display: inline-grid !important;
+    }
+  }
+}
+
+/* Mat-Dialog */
+.cdk-global-scrollblock {
+  position: static !important;
+  width: initial !important;
+  overflow-y: inherit !important;
+}
+
+.mat-dialog-container {
+  .mat-dialog-actions {
+    padding: $spacing-md 0 !important;
+    margin-bottom: -$spacing-md !important;
+  }
+}
+
+/* Ng-Select */
+.ng-select {
+  .ng-select-container {
+    @extend .form-control;
+    height: auto !important;
+    min-height: calc(2.95rem + 2px);
+    border: 1px solid #ced4da;
+    cursor: pointer !important;
+
+    .ng-value-container {
+      .ng-value {
+        font-size: 0.95em !important;
+        border-radius: 30px !important;
+        padding: 1px !important;
+        background-color: $grey-95 !important;
+        overflow: hidden;
+
+        .ng-value-icon {
+          padding: 1px 8px !important;
+
+          &.left {
+          }
+
+          &:hover {
+            background-color: $grey-90 !important;
+          }
+        }
+
+        .ng-value-label {
+          padding: 1px 10px !important;
+        }
+      }
+
+      .ng-placeholder {
+        top: auto !important;
+      }
+    }
+  }
+
+  .ng-dropdown-panel {
+    .ng-dropdown-panel-items {
+      .ng-option.ng-option-marked {
+        background-color: $grey-95 !important;
+        color: #333;
+      }
+
+      .ng-option-selected {
+        background-color: $grey-90 !important;
+      }
+    }
+  }
+}
+/* Expansion Panel */
+.mat-expansion-panel-header {
+  font-size: 16px !important;
+}
+
+.mat-expansion-panel-header,
+.mat-expansion-panel-content {
+  font-family: inherit !important;
+  font-weight: 300 !important;
+}
+/* Default styles for all Checkboxes */
+.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background,
+.mat-checkbox-checked.mat-accent .mat-checkbox-background {
+  background-color: $blue !important;
+}
+
+.mat-checkbox-ripple {
+  // hide click animation
+  display: none;
+}
+
+.mat-checkbox-frame {
+  border-width: 1px !important;
+  border-radius: 0 !important;
+  border-color: $grey-70 !important;
+}
+
+.mat-checkbox-layout {
+  width: 100%;
+}
+
+.mat-checkbox-label {
+  flex-grow: 1 !important;
+}
+
+.mat-selection-list {
+  .mat-pseudo-checkbox {
+    border: 1px solid !important;
+
+    &::after {
+      top: 4px !important;
+      left: 3px !important;
+      width: 12px !important;
+      height: 6px !important;
+    }
+  }
+}
+/* Tooltips & Popovers */
+.popover {
+  font-family: $font-main !important;
+  box-shadow: $shadow-lg;
+  border: none !important;
+
+  &.bs-popover-left .arrow::before,
+  &.bs-popover-auto[x-placement^="left"] .arrow::before {
+    border-left-color: transparent !important;
+  }
+
+  .popover-header {
+    margin-bottom: 0 !important;
+  }
+
+  .popover-body {
+    .popover-list {
+      line-height: 1.5rem !important;
+    }
+  }
+}
+
+.custom-tooltip {
+  opacity: 1 !important;
+
+  .tooltip-inner {
+    box-shadow: $shadow-md;
+    background: $white;
+    padding: $spacing-xs;
+    color: $dark !important;
+    font-family: $font-main;
+    border: 0px solid $white;
+  }
+
+  .arrow::before {
+    /*border-top-color: $primary !important;*/
+    border-top-color: $white !important;
+  }
+
+  &.bs-tooltip-bottom {
+    .arrow::before {
+      /*border-bottom-color: $primary !important;*/
+      border-bottom-color: $white !important;
+    }
+  }
+}
+/* Pagination */
+pagination-template {
+  display: block;
+  text-align: center;
+
+  .ngx-pagination {
+    padding-inline-start: 0;
+
+    li {
+      border-radius: 50%;
+      margin-right: $spacing-xxs;
+      margin-left: $spacing-xxs;
+      width: 2rem;
+      height: 2rem;
+      text-align: center;
+      line-height: 1.6rem;
+
+      &:first-of-type {
+        margin-left: 0;
+      }
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+
+      &.current {
+        background-color: $primary;
+      }
+
+      a {
+        border-radius: 50%;
+        width: 2rem;
+        height: 2rem;
+        text-align: center;
+        line-height: 1.6rem;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+
+    .pagination-previous {
+      font: $font-lineawesome;
+
+      &.disabled,
+      a {
+        padding: 0.1875rem 0.625rem;
+        /*background-color: $grey-95;*/
+      }
+
+      &.disabled::before,
+      a::before {
+        content: "\f111";
+      }
+    }
+
+    .pagination-next {
+      font: $font-lineawesome;
+
+      &.disabled,
+      a {
+        padding: 0.1875rem 0.625rem;
+        /*background-color: $grey-95;*/
+      }
+
+      &.disabled::after,
+      a::after {
+        content: "\f112";
+        margin-left: 0;
+      }
+    }
+  }
+}
+/* ng4geo-autocomplete */
+ng4geo-autocomplete {
+  .custom-autocomplete__input {
+    input {
+      border-color: #ebedf2 !important;
+      color: #575962;
+      border-radius: 0.25rem;
+
+      &:focus {
+        outline: 0;
+        border-color: #716aca !important;
+        color: #575962;
+        box-shadow: none;
+      }
+    }
+  }
+}
